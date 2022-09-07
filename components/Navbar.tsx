@@ -8,7 +8,7 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { IoMdAdd } from "react-icons/io";
 
-import Logo from "../../utils/tiktik-logo.png";
+import Logo from "../utils/tiktik-logo.png";
 
 export const Navbar = () => {
   return (
