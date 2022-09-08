@@ -7,6 +7,8 @@ import "../styles/globals.css";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 
+import { env } from "process";
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true);
 
