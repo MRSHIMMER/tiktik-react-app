@@ -11,6 +11,7 @@ import useAuthStore from "../../store/authStore";
 import { BASE_URL } from "../../utils";
 import { IUser, Video } from "../../types";
 
+//暂时不支持中文以及大写字母搜索
 const Search = ({ videos }: { videos: Video[] }) => {
   const [isAccounts, setIsAccounts] = useState(false);
   const { allUsers }: { allUsers: IUser[] } = useAuthStore();
