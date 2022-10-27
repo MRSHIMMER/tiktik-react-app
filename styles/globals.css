@@ -23,7 +23,8 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  /* 暂时取消滚动条 */
+  width: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
