@@ -15,15 +15,15 @@ export const Sidebar: NextPage = () => {
   const { pathname } = useRouter();
 
   const activeLink =
-    "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
+    "flex items-center gap-3 hover:bg-primary p-3 justify-start xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
 
   const normalLink =
-    "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded";
+    "flex items-center gap-3 hover:bg-primary p-3 justify-start xl:justify-start cursor-pointer font-semibold rounded";
 
   return (
     <div>
       <div
-        className="block xl:hidden m-2 ml-4 mt-3 text-xl"
+        className="block xl:hidden m-2 ml-6 mt-5 mb-0 text-2xl"
         onClick={() => setShowSidebar(!showSidebar)}
       >
         {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}

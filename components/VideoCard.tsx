@@ -71,7 +71,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           </div>
         </div>
       </div>
-
+      {/* 视频中的图标要使用绝对定位，父元素这里需要使用相对定位，否则绝对定位的上下文将是窗口 */}
       <div className="lg:ml-20 flex gap-4 relative">
         <div
           onMouseEnter={() => setIsHover(true)}
@@ -86,7 +86,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
               className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
             ></video>
           </Link>
-
+          {/* 使用绝对定位将图标移动到视频上层 */}
           {isHover && (
             <div className="absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] lg:w-[600px] p-3">
               {playing ? (
