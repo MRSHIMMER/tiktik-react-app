@@ -77,17 +77,18 @@ const Detail = ({ postDetails }: IProps) => {
     }
   };
 
-  if (!post) return null;
+  if (!post) return <div>Not found!</div>;
   return (
-    <div className="flex w-full absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
-      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-blurred-img bg-no-repeat bg-cover bg-center">
-        <div className="opacity-90 absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
+    // 用绝对定位遮蔽Sidebar和Navbar
+    <div className="absolute left-0 top-0 flex w-full flex-wrap bg-white lg:flex-nowrap">
+      <div className="flex-2 relative flex w-[1000px] items-center justify-center bg-blurred-img bg-cover bg-center bg-no-repeat lg:w-9/12">
+        <div className="absolute top-6 left-2 z-50 flex gap-6 opacity-90 lg:left-6">
           <p className="cursor-pointer " onClick={() => router.back()}>
-            <MdOutlineCancel className="text-white text-[35px] hover:opacity-90" />
+            <MdOutlineCancel className="text-[35px] text-white hover:opacity-90" />
           </p>
         </div>
         <div className="relative">
-          <div className="lg:h-[100vh] h-[60vh]">
+          <div className="h-[60vh] lg:h-[100vh]">
             <video
               ref={videoRef}
               onClick={onVideoClick}
@@ -100,28 +101,28 @@ const Detail = ({ postDetails }: IProps) => {
           <div className="absolute top-[45%] left-[40%]  cursor-pointer">
             {!isPlaying && (
               <button onClick={onVideoClick}>
-                <BsFillPlayFill className="text-white text-6xl lg:text-8xl" />
+                <BsFillPlayFill className="text-6xl text-white lg:text-8xl" />
               </button>
             )}
           </div>
         </div>
-        <div className="absolute bottom-5 lg:bottom-10 right-5 lg:right-10  cursor-pointer">
+        <div className="absolute bottom-5 right-5 cursor-pointer lg:bottom-10  lg:right-10">
           {isVideoMuted ? (
             <button onClick={() => setIsVideoMuted(false)}>
-              <HiVolumeOff className="text-white text-3xl lg:text-4xl" />
+              <HiVolumeOff className="text-3xl text-white lg:text-4xl" />
             </button>
           ) : (
             <button onClick={() => setIsVideoMuted(true)}>
-              <HiVolumeUp className="text-white text-3xl lg:text-4xl" />
+              <HiVolumeUp className="text-3xl text-white lg:text-4xl" />
             </button>
           )}
         </div>
       </div>
 
       <div className="relative w-[1000px] md:w-[900px] lg:w-[700px]">
-        <div className="lg:mt-20 mt-10">
+        <div className="mt-10 lg:mt-20">
           <Link href="/">
-            <div className="flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer">
+            <div className="mb-4 flex w-full cursor-pointer gap-4 bg-white pl-10">
               <Image
                 width={60}
                 height={60}
@@ -130,9 +131,9 @@ const Detail = ({ postDetails }: IProps) => {
                 src={post.postedBy.image}
               />
               <div>
-                <div className="text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center">
+                <div className="flex items-center justify-center gap-2 text-xl font-bold lowercase tracking-wider">
                   {post.postedBy.userName.replace(/\s+/g, "")}{" "}
-                  <GoVerified className="text-blue-400 text-xl" />
+                  <GoVerified className="text-xl text-blue-400" />
                 </div>
                 <p className="text-md"> {post.postedBy.userName}</p>
               </div>

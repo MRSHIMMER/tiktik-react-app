@@ -23,20 +23,20 @@ export const Sidebar: NextPage = () => {
   return (
     <div>
       <div
-        className="block xl:hidden m-2 ml-6 mt-5 mb-0 text-2xl"
+        className="m-2 ml-6 mt-5 mb-0 block text-2xl md:hidden"
         onClick={() => setShowSidebar(!showSidebar)}
       >
         {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
       </div>
       {showSidebar && (
-        <div className="xl:w-400 w-20 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 ">
-          <div className="xl:border-b-2 border-gray-200 xl:pb-4">
+        <div className="mb-10 flex w-20 flex-col justify-start border-r-2 border-gray-100 p-3 xl:w-400 xl:border-0 ">
+          <div className="border-gray-200 xl:border-b-2 xl:pb-4">
             <Link href="/">
               <div className={pathname === "/" ? activeLink : normalLink}>
                 <p className="text-2xl">
                   <AiFillHome />
                 </p>
-                <span className="capitalize text-xl hidden xl:block">For You</span>
+                <span className="hidden text-xl capitalize xl:block">For You</span>
               </div>
             </Link>
           </div>

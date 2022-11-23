@@ -19,13 +19,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   if (isSSR) return null;
   return (
     <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
-      <div className="xl:w-[1200px] m-auto overflow-hidden h-[100vh]">
+      <div className="m-auto h-[100vh] overflow-hidden xl:w-[100vw]">
         <Navbar />
-        <div className="flex gap-6 md:gap-20">
+        <div className="m-auto  flex gap-6 md:gap-20 xl:w-[1200px]">
           <div className="h-[92vh] overflow-hidden  xl:hover:overflow-auto">
             <Sidebar />
           </div>
-          <div className="mt-4 flex flex-col gap-10 overflow-auto h-[88vh] videos flex-1">
+          <div className="videos mt-4 flex h-[88vh] flex-1 flex-col gap-10 overflow-auto">
             <Component {...pageProps} />
           </div>
         </div>
