@@ -8,20 +8,21 @@ import { IUser } from "../types";
 
 export const SuggestedAccounts = () => {
   const { fetchAllUsers, allUsers } = useAuthStore();
+  console.log(allUsers);
 
   useEffect(() => {
     fetchAllUsers();
   }, [fetchAllUsers]);
   return (
-    <div className="xl:border-b-2 border-gray-200 pb-4">
-      <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">
+    <div className="border-gray-200 pb-4 xl:border-b-2">
+      <p className="m-3 mt-4 hidden font-semibold text-gray-500 xl:block">
         Suggested accounts
       </p>
       <div>
         {allUsers?.slice(0, 6).map((user: IUser) => (
           <Link href={`/profile/${user._id}`} key={user._id}>
-            <div className="flex gap-3 hover:bg-primary p-2 cursor-pointer font-semibold rounded">
-              <div className="w-8 h-8">
+            <div className="flex cursor-pointer gap-3 rounded p-2 font-semibold hover:bg-primary">
+              <div className="h-8 w-8">
                 <Image
                   width={34}
                   height={34}
@@ -33,11 +34,11 @@ export const SuggestedAccounts = () => {
               </div>
 
               <div className="hidden xl:block">
-                <p className="flex gap-1 items-center text-md font-bold text-primary lowercase">
+                <p className="text-md flex items-center gap-1 font-bold lowercase text-primary">
                   {user.userName.replace(/\s+/g, "")}{" "}
                   <GoVerified className="text-blue-400" />
                 </p>
-                <p className="capitalize text-gray-400 text-xs">{user.userName}</p>
+                <p className="text-xs capitalize text-gray-400">{user.userName}</p>
               </div>
             </div>
           </Link>

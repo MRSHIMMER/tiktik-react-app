@@ -9,6 +9,8 @@ const nextConfig = {
       "i0.hdslb.com",
       "lh3.googleusercontent.com",
       "i2.hdslb.com",
+      "p16-sign-sg.tiktokcdn.com",
+      "i1.hdslb.com",
     ],
   },
 };

@@ -4,6 +4,7 @@ import axios from "axios";
 import VideoCard from "../components/VideoCard";
 import NoResults from "../components/NoResults";
 import { Video } from "../types";
+import { shuffle } from "../utils/shuffle";
 
 import { BASE_URL } from "../utils";
 
@@ -13,9 +14,11 @@ interface IProps {
 
 const Home = ({ videos }: IProps) => {
   return (
-    <div className="flex flex-col gap-10 videos h-full">
+    <div className="videos flex h-full flex-col gap-10">
       {videos.length ? (
-        videos.map((video: Video) => <VideoCard post={video} key={video._id} />)
+        shuffle(videos)
+          .slice(0, 5)
+          .map((video: Video) => <VideoCard post={video} key={video._id} />)
       ) : (
         <NoResults text={"No videos"} />
       )}

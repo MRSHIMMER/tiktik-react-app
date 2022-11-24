@@ -31,7 +31,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center justify-around border-b-2 border-gray-200 xl:h-16">
+    <div className="flex h-14 items-center justify-around border-b-2 border-gray-200 xl:h-16">
       <div className="flex  w-full items-center justify-between px-4   xl:w-[1200px]">
         <Link href="/">
           <div className="h-[38px] w-[100px] md:h-[30px] md:w-[129px]">

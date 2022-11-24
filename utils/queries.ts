@@ -1,5 +1,5 @@
 export const allPostsQuery = () => {
-  const query = `*[_type == "post"] | order(_createdAt desc){
+  const query = `*[_type == "post"][0...30] | order(_createdAt desc){
     _id,
      caption,
        video{
