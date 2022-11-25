@@ -8,7 +8,6 @@ import { IUser } from "../types";
 
 export const SuggestedAccounts = () => {
   const { fetchAllUsers, allUsers } = useAuthStore();
-  console.log(allUsers);
 
   useEffect(() => {
     fetchAllUsers();

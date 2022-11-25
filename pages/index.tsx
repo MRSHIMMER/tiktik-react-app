@@ -1,12 +1,12 @@
-import type { NextPage } from "next";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import VideoCard from "../components/VideoCard";
 import NoResults from "../components/NoResults";
 import { Video } from "../types";
-import { shuffle } from "../utils/shuffle";
-
 import { BASE_URL } from "../utils";
+import { shuffle } from "../utils/shuffle";
 
 interface IProps {
   videos: Video[];
@@ -14,11 +14,12 @@ interface IProps {
 
 const Home = ({ videos }: IProps) => {
   return (
-    <div className="videos flex h-full flex-col gap-10">
+    <div
+      id="scrollableDiv"
+      className="videos  flex h-[88vh] flex-1 flex-col gap-10 overflow-auto"
+    >
       {videos.length ? (
-        shuffle(videos)
-          .slice(0, 5)
-          .map((video: Video) => <VideoCard post={video} key={video._id} />)
+        shuffle(videos).map((video: Video) => <VideoCard post={video} key={video._id} />)
       ) : (
         <NoResults text={"No videos"} />
       )}

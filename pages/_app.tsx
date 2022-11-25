@@ -7,8 +7,6 @@ import "../styles/globals.css";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 
-import { env } from "process";
-
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true);
 
@@ -25,9 +23,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <div className="h-[92vh] overflow-hidden  xl:hover:overflow-auto">
             <Sidebar />
           </div>
-          <div className="videos mt-4 flex h-[88vh] flex-1 flex-col gap-10 overflow-auto">
-            <Component {...pageProps} />
-          </div>
+          <Component {...pageProps} />
         </div>
       </div>
     </GoogleOAuthProvider>
