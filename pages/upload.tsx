@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -70,16 +70,16 @@ const Upload = () => {
   };
 
   return (
-    <div className="flex w-full h-full absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center">
-      <div className=" bg-white rounded-lg xl:h-[80vh] w-[60%] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
+    <div className="absolute left-0 top-[60px] mb-10 flex h-full w-full justify-center bg-[#F8F8F8] pt-10 lg:top-[70px] lg:pt-20">
+      <div className=" flex w-[60%] flex-wrap items-center justify-center gap-6 rounded-lg bg-white p-14 pt-6 xl:h-[80vh]">
         <div>
           <div>
             <p className="text-2xl font-bold">Upload Video</p>
-            <p className="text-md text-gray-400 mt-1">Post a video to you account</p>
+            <p className="text-md mt-1 text-gray-400">Post a video to you account</p>
           </div>
           <div
-            className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none
-        mt-10 w-[260px] h-[460px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100"
+            className="mt-10 flex h-[460px] w-[260px] cursor-pointer flex-col items-center justify-center rounded-xl
+        border-4 border-dashed border-gray-200 p-10 outline-none hover:border-red-300 hover:bg-gray-100"
           >
             {isLoading ? (
               <p>Uploading...</p>
@@ -91,33 +91,33 @@ const Upload = () => {
                       src={videoAsset.url}
                       loop
                       controls
-                      className="rounded-xl h-[450px] mt-16 bg-black"
+                      className="mt-16 h-[450px] rounded-xl bg-black"
                     ></video>
                   </div>
                 ) : (
                   <label className="cursor-pointer">
-                    <div className="flex flex-col items-center justify-center h-full">
+                    <div className="flex h-full flex-col items-center justify-center">
                       <div className="flex flex-col items-center justify-center">
-                        <p className="font-bold text-xl">
-                          <FaCloudUploadAlt className="text-gray-300 text-6xl" />
+                        <p className="text-xl font-bold">
+                          <FaCloudUploadAlt className="text-6xl text-gray-300" />
                         </p>
                         <p className="text-xl font-semibold">Upload Video</p>
                       </div>
-                      <p className="text-gray-400 text-center mt-10 text-sm leading-10">
+                      <p className="mt-10 text-center text-sm leading-10 text-gray-400">
                         MP4 or WebM or ogg <br />
                         720*1280 or higher <br />
                         Up to 10 minutes
                         <br />
                         Less than 2GB
                       </p>
-                      <p className="bg-[#F51997] text-center mt-10 rounded text-white text-md font-medium p-2 w-52 outline-none">
+                      <p className="text-md mt-10 w-52 rounded bg-[#F51997] p-2 text-center font-medium text-white outline-none">
                         Select File
                       </p>
                     </div>
                     <input
                       type="file"
                       name="upload-video"
-                      className="w-0 h-0"
+                      className="h-0 w-0"
                       onChange={uploadVideo}
                     />
                   </label>
@@ -125,7 +125,7 @@ const Upload = () => {
               </div>
             )}
             {wrongFileType && (
-              <p className="text-center text-xl text-red-400 font-semibold mt-4 w-[250px]">
+              <p className="mt-4 w-[250px] text-center text-xl font-semibold text-red-400">
                 Please select a video file
               </p>
             )}
@@ -139,7 +139,7 @@ const Upload = () => {
             onChange={(e) => {
               setCaption(e.target.value);
             }}
-            className="rounded outline-none text-md border-2 border-gray-200 p-2"
+            className="text-md rounded border-2 border-gray-200 p-2 outline-none"
           />
           <label className="text-md font-medium"> Choose a Category</label>
           <select
@@ -148,30 +148,30 @@ const Upload = () => {
             onChange={(e) => {
               setCategory(e.target.value);
             }}
-            className="outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
+            className="text-md cursor-pointer rounded border-2 border-gray-200 p-2 capitalize outline-none lg:p-4"
           >
             {topics.map((topic) => (
               <option
                 value={topic.name}
                 key={topic.name}
-                className="outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300"
+                className="text-md bg-white p-2 capitalize text-gray-700 outline-none hover:bg-slate-300"
               >
                 {topic.name}
               </option>
             ))}
           </select>
-          <div className="flex gap-6 mt-10">
+          <div className="mt-10 flex gap-6">
             <button
               onClick={() => {}}
               type="button"
-              className="border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:g-44 outline-none"
+              className="text-md lg:g-44 w-28 rounded border-2 border-gray-300 p-2 font-medium outline-none"
             >
               Discard
             </button>
             <button
               onClick={handlePost}
               type="button"
-              className="bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:g-44 outline-none"
+              className="text-md lg:g-44 w-28 rounded bg-[#F51997] p-2 font-medium text-white outline-none"
             >
               Post
             </button>

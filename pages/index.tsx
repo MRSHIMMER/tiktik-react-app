@@ -1,4 +1,3 @@
-import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 
