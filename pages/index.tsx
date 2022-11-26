@@ -12,6 +12,7 @@ interface IProps {
   videos: Video[];
 }
 
+// 暂时放弃同构渲染
 const Home = ({ videos }: IProps) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Video[]>([]);

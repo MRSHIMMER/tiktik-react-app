@@ -10,7 +10,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === "GET") {
     const query = allPostsQuery();
     const data = await client.fetch(query);
-    res.status(200).json(shuffle(data).slice(0, 5));
+    // res.status(200).json(shuffle(data).slice(0, 5));
+    res.status(200).json(shuffle(data).slice(0, 15));
   } else if (req.method === "POST") {
     const document = req.body;
     if (document.fakemore) {
