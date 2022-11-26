@@ -29,7 +29,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
 
   const onVideoPress = () => {
     if (playing) {
-      //videoRed有可能为Null
+      //videoRef有可能为Null
       videoRef?.current?.pause();
       setPlaying(false);
     } else {

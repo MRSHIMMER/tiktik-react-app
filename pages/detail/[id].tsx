@@ -31,7 +31,7 @@ const Detail = ({ postDetails }: IProps) => {
   const [comment, setComment] = useState("");
   const [isPostingComment, setIsPostingComment] = useState(false);
 
-  // 应该不用添加post
+  // 跳转到新的视频页，重新执行回调，控制声音
   useEffect(() => {
     if (post && videoRef?.current) {
       videoRef.current.muted = isVideoMuted;
