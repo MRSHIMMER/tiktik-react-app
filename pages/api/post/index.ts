@@ -19,6 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const allPosts = await client.fetch(query);
 
       const filterPosts: Video[] = [];
+
       for (let i = 0; i < 5; i++) {
         const filterPost = allPosts.filter(
           (item: Video) =>

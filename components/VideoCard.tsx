@@ -21,6 +21,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
   const verticalStyle = "text-3xl text-white";
   const horizontalStyle = "text-3xl text-black";
 
+  // 通过长宽比来判断图标的颜色
   const getButtonStyle = (ref: React.RefObject<HTMLVideoElement>): string => {
     return ref.current!.videoHeight / ref.current!.videoWidth > 1.5
       ? verticalStyle
@@ -45,7 +46,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
   }, [isVideoMuted]);
 
   return (
-    <div className="flex  flex-col border-b-2 border-gray-200 pb-6 pt-4">
+    <div className="flex  flex-col border-b-2 border-gray-200 pb-6">
       <div>
         <div className="flex cursor-pointer gap-3 rounded p-2 font-semibold ">
           <div className="h-10 w-10 md:h-16 md:w-16">
